@@ -16,24 +16,32 @@ struct MainTabView: View {
 		
 		TabView(selection: $selectedIndex) {
 			Group {
-				VStack {
-					Image(systemName: "globe")
-						.imageScale(.large)
-						.foregroundStyle(.tint)
-					Text("Inspiration")
-				}
-				.padding()
+				InspirationView()
+					.tabItem {
+						Image(systemName: "house")
+						Text("Inspiration")
+					}
+					.tag(0)
 				
-				VStack {
-					Image(systemName: "globe")
-						.imageScale(.large)
-						.foregroundStyle(.tint)
-					Text("Color")
-				}
-				.padding()
+				ColorView()
+					.tabItem {
+						Image(systemName: "house")
+						Text("Color")
+					}
+					.tag(1)
+				
+				FeedView()
+					.tabItem {
+						Image(systemName: "house")
+						Text("Feed")
+					}
+					.tag(2)
 			}
+			.toolbarBackground(.black ,for: .tabBar)
+			.toolbarBackground(.visible, for: .tabBar)
+			.toolbarColorScheme(.dark, for: .tabBar)
 		}
-		
+		.tint(.green())
     }
 }
 
